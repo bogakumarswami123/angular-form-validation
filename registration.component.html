@@ -1,0 +1,81 @@
+<form class="form"  [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
+  <div id ="header">
+    <h3 class="text-center">SIGN UP</h3>
+  </div>
+  <div class="row">
+    <div class="col">
+           <div class="form-group">
+             <label for="firstname">*Firstname</label>
+               <input type="text" name="firstname" [formControl]="registerForm.controls.firstname"
+               class="form-control" [ngClass]="{ 'is-invalid': submitted && registerForm.controls.firstname.errors }">
+                <div *ngIf="submitted && registerForm.controls.firstname.errors" class="invalid-feedback">
+                  <div *ngIf="registerForm.controls.firstname.errors.required">First Name is required</div>
+               </div>
+
+           </div>
+      
+    </div>
+    <div class="col">
+           <div class="form-group">
+             <label for="lastname">*Lastname</label>
+               <input type="text" name="lastname" id="lastname" class="form-control"
+                [formControl]="registerForm.controls.lastname"
+                [ngClass]="{ 'is-invalid': submitted && registerForm.controls.lastname.errors }">
+                <div *ngIf="submitted && registerForm.controls.lastname.errors" class="invalid-feedback">
+                  <div *ngIf="registerForm.controls.lastname.errors.required">Last Name is required</div>
+               </div>
+           </div>
+      
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="username">*Username</label>
+      <input type="text" name="username" id="username" class="form-control"
+       [formControl]="registerForm.controls.username"
+       [ngClass]="{ 'is-invalid': submitted && registerForm.controls.username.errors }">
+       <div *ngIf="submitted && registerForm.controls.username.errors" class="invalid-feedback">
+        <div *ngIf="registerForm.controls.username.errors.required">User Name is required</div>
+        <div *ngIf="registerForm.controls.username.errors.pattern">Invalid input for Username/Email</div>
+      </div>
+      
+  </div>
+  <div class="form-group">
+      <label for="password">*Password</label>
+      <input type="password" name="password" id="password" class="form-control" 
+      [formControl]="registerForm.controls.password"
+      [ngClass]="{ 'is-invalid': submitted && registerForm.controls.password.errors }">
+      <div *ngIf="submitted && registerForm.controls.password.errors" class="invalid-feedback">
+        <div *ngIf="registerForm.controls.password.errors.required">User Name is required</div>
+        <div *ngIf="registerForm.controls.password.errors.pattern">Invalid Pattern for Password</div>
+      </div>
+
+  </div>
+  <div class="form-group">
+    <label for="gender">*Gender</label>
+  <select name="gender" id="gender" class="form-control">
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+  </select>
+
+  </div>
+
+
+  <div class="form-check">
+  <input type="checkbox" name="terms"id="accept-terms"  class="form-check-input">
+ 
+  <label for="accept-terms" class="form-check-label">Accept Terms &amp; Conditions</label>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-info" type="submit">SUBMIT</button>
+  </div>
+
+    <div class="container text-center">
+      <a href="#"><i class="fa fa-facebook" ></i></a>&nbsp;&nbsp;
+      <a href="#"><i class="fa fa-twitter"></i></a>&nbsp;&nbsp;
+      <a href="#"><i class="fa fa-linkedin"></i></a>&nbsp;&nbsp;
+      <a href="#"><i class="fa fa-skype"></i></a>&nbsp;&nbsp;
+    </div>
+
+</form>
+
+
